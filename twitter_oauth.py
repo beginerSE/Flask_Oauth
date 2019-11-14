@@ -2,6 +2,7 @@ from urllib.parse import parse_qsl
 from requests_oauthlib import OAuth1Session
 import json
 
+# ここに自分のAPI鍵を入力してください
 consumer_key = ''
 consumer_secret = ''
 access_key = ''
