@@ -5,7 +5,7 @@ import db
 
 app = Flask(__name__)
 
-# Sessionの暗号化に使う任意の文字列
+# Sessionの暗号化に使う任意の文字列(適当でOK)
 app.secret_key = 'A0Zr98j/3yX Rnaxaixaixai~XHH!jmN]LWX/,?RT'
 
 # トップ画面
