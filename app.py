@@ -65,7 +65,7 @@ def logout():
     session.pop('user_id', None)
     session.pop('oauth_token', None)
     session.pop('oauth_secret', None)
-    return redirect(url_for('crypto_index'))
+    return redirect(url_for('index'))
 
 
 app.run(debug=True)
