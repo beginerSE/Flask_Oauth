@@ -5,7 +5,10 @@ import db
 
 app = Flask(__name__)
 
+# Sessionの暗号化に使う任意の文字列
+app.secret_key = 'A0Zr98j/3yX Rnaxaixaixai~XHH!jmN]LWX/,?RT'
 
+# トップ画面
 @app.route('/')
 def index():
     if 'user_name' in session:
@@ -15,6 +18,7 @@ def index():
     return render_template("index.html", user_name=user_name)
 
 
+# Twitterの認証画面にリダイレクトする
 @app.route("/oauth_register")
 def redirect_oauth():
     # Twitter Application Management で設定したコールバックURLsのどれか
@@ -26,7 +30,7 @@ def redirect_oauth():
 @app.route('/callback')
 def execute_userinfo():
     """[認証画面から返されてきた情報を取得して処理する関数]
-    Return [ホーム画面にリダイレクトする]
+    Return [ホーム画面('/')にリダイレクトする]
     """
 
     oauth_token = request.args.get('oauth_token')
@@ -52,21 +56,6 @@ def execute_userinfo():
     session['oauth_token'] = access_token['oauth_token']
     session['oauth_token_secret'] = access_token['oauth_token_secret']
     return redirect(url_for('index'))
-
-
-@app.route("/get_accountdata")
-def get_accountdata():
-    if session == []:
-        return redirect(url_for('sign_in'))
-    else:
-        # アクセストークンからアカウントデータを取得する
-        data = twitter_oauth.get_accountdata(
-            session['user_id'],
-            session['oauth_token'],
-            session['oauth_token_secret']
-        )
-
-        return render_template("rtest.html", data=data)
 
 
 @app.route("/logout")
