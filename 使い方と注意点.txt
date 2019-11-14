@@ -1,0 +1,13 @@
+・まずschema.sqlを実行して、Crypto.sqliteにuser_info
+　というテーブルを作成してください
+　$ sqlite3 crypto.sqlite < schema.sql
+
+・API側のコールバックURLはテストネットであれば
+　「http://127.0.0.1:5000/callback」です。
+　これにしないとユーザー情報の受け取りが上手くいきません
+
+・Twitter_oauth.pyのAPI鍵は自分のAPI鍵をセットしてください
+
+・API鍵の作成・確認やコールバックURLの確認は
+　「https://developer.twitter.com/」のappsから行えます
+

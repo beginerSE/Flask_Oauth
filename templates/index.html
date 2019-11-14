@@ -1,0 +1,10 @@
+<html>
+<h1>FlaskでSNSログインを実装する</h1>
+<p>
+    {% if user_name == [] %}
+    <a href='/oauth_register'>Twitterでログインする</a>
+    {% else %}
+    こんにちは{{user_name}}さん！
+    {% endif %}
+
+</html>
